@@ -93,6 +93,11 @@ paths:
                         movement_type: { type: string, example: "Port to Door" }
                         remarks: { type: string, example: "Customer requests warehouse storage and domestic trucking." }
         '401':
+          examples:
+            invalidCredentials:
+              value:
+                status: "error"
+                message: "Invalid credentials"
           description: Invalid credentials
           content:
             application/json:
@@ -135,5 +140,6 @@ components:
       scheme: basic
 security:
   - BasicAuth: []
+
 
 
