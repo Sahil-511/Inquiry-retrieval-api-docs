@@ -43,6 +43,28 @@ paths:
           description: Successful response with matched inquiry data
           content:
             application/json:
+              examples: 
+                SuccessExample:
+                  summary: Example of successful response
+                  value:
+                    status: "success"
+                    data:
+                      - code: "87085099"
+                        name: "Ball cage"
+                        qty: "30"
+                        length: "81"
+                        width: "122"
+                        height: "89"
+                        size_uom: "cm"
+                        origin: "VNSGN"
+                        destination: "USCHS"
+                        delivery_address: "479 Trade Center Parkway, Summerville, SC 29483, USA"
+                        mode: "Sea"
+                        commodity: "Ball cage"
+                        commodity_type: "Machinery"
+                        inco_term: "DAP"
+                        movement_type: "Port to Door"
+                        remarks: "Customer requests warehouse storage and domestic trucking."
               schema:
                 type: object
                 properties:
@@ -113,3 +135,4 @@ components:
       scheme: basic
 security:
   - BasicAuth: []
+
