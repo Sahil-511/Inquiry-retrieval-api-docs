@@ -40,11 +40,11 @@ paths:
           example: 50
       responses:
         '200':
-          description: Successful response with matched inquiry data
+              description: Successful response with matched inquiry data
           content:
             application/json:
-              examples: 
-                SuccessExample:
+              examples:
+                successExample:
                   summary: Example of successful response
                   value:
                     status: "success"
@@ -135,4 +135,5 @@ components:
       scheme: basic
 security:
   - BasicAuth: []
+
 
