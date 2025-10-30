@@ -43,110 +43,100 @@ paths:
           description: Successful response with matched inquiry data
           content:
             application/json:
-              examples:
-                successExample:
-                  summary: Example of successful response
-                  value:
-                    status: "success"
-                    data:
-                      - code: "87085099"
-                        name: "Ball cage"
-                        qty: "30"
-                        length: "81"
-                        width: "122"
-                        height: "89"
-                        size_uom: "cm"
-                        origin: "VNSGN"
-                        destination: "USCHS"
-                        delivery_address: "479 Trade Center Parkway, Summerville, SC 29483, USA"
-                        mode: "Sea"
-                        commodity: "Ball cage"
-                        commodity_type: "Machinery"
-                        inco_term: "DAP"
-                        movement_type: "Port to Door"
-                        remarks: "Customer requests warehouse storage and domestic trucking."
               schema:
                 type: object
                 properties:
                   status:
                     type: string
+                    example: success
                   data:
                     type: array
                     items:
                       type: object
                       properties:
-                        code: { type: string }
-                        name: { type: string }
-                        qty: { type: string }
-                        length: { type: string }
-                        width: { type: string }
-                        height: { type: string }
-                        size_uom: { type: string }
-                        origin: { type: string }
-                        destination: { type: string }
-                        delivery_address: { type: string }
-                        mode: { type: string }
-                        commodity: { type: string }
-                        commodity_type: { type: string }
-                        inco_term: { type: string }
-                        movement_type: { type: string }
-                        remarks: { type: string }
+                        code: { type: string, example: "87085099" }
+                        name: { type: string, example: "Ball cage" }
+                        qty: { type: string, example: "30" }
+                        length: { type: string, example: "81" }
+                        width: { type: string, example: "122" }
+                        height: { type: string, example: "89" }
+                        size_uom: { type: string, example: "cm" }
+                        origin: { type: string, example: "VNSGN" }
+                        destination: { type: string, example: "USCHS" }
+                        delivery_address: { type: string, example: "479 Trade Center Parkway, Summerville, SC 29483, USA" }
+                        mode: { type: string, example: "Sea" }
+                        commodity: { type: string, example: "Ball cage" }
+                        commodity_type: { type: string, example: "Machinery" }
+                        inco_term: { type: string, example: "DAP" }
+                        movement_type: { type: string, example: "Port to Door" }
+                        remarks: { type: string, example: "Customer requests warehouse storage and domestic trucking." }
+              example:
+                status: success
+                data:
+                  - code: "87085099"
+                    name: "Ball cage"
+                    qty: "30"
+                    length: "81"
+                    width: "122"
+                    height: "89"
+                    size_uom: "cm"
+                    origin: "VNSGN"
+                    destination: "USCHS"
+                    delivery_address: "479 Trade Center Parkway, Summerville, SC 29483, USA"
+                    mode: "Sea"
+                    commodity: "Ball cage"
+                    commodity_type: "Machinery"
+                    inco_term: "DAP"
+                    movement_type: "Port to Door"
+                    remarks: "Customer requests warehouse storage and domestic trucking."
         '401':
           description: Invalid credentials
           content:
             application/json:
-              examples:
-                invalidCredentials:
-                  value:
-                    status: "error"
-                    message: "Invalid credentials"
               schema:
                 type: object
                 properties:
-                  status: { type: string }
-                  message: { type: string }
+                  status: { type: string, example: "error" }
+                  message: { type: string, example: "Invalid credentials" }
+              example:
+                status: error
+                message: Invalid credentials
         '403':
           description: Unauthorized company
           content:
             application/json:
-              examples:
-                unauthorizedCompany:
-                  value:
-                    status: "error"
-                    message: "Unauthorized company"
               schema:
                 type: object
                 properties:
-                  status: { type: string }
-                  message: { type: string }
+                  status: { type: string, example: "error" }
+                  message: { type: string, example: "Unauthorized company" }
+              example:
+                status: error
+                message: Unauthorized company
         '404':
           description: No matching data found
           content:
             application/json:
-              examples:
-                noMatchFound:
-                  value:
-                    status: "error"
-                    message: "No matching unprocessed data found"
               schema:
                 type: object
                 properties:
-                  status: { type: string }
-                  message: { type: string }
+                  status: { type: string, example: "error" }
+                  message: { type: string, example: "No matching unprocessed data found" }
+              example:
+                status: error
+                message: No matching unprocessed data found
         '500':
           description: Internal server error
           content:
             application/json:
-              examples:
-                internalError:
-                  value:
-                    status: "error"
-                    message: "Internal server error"
               schema:
                 type: object
                 properties:
-                  status: { type: string }
-                  message: { type: string }
+                  status: { type: string, example: "error" }
+                  message: { type: string, example: "Internal server error" }
+              example:
+                status: error
+                message: Internal server error
 components:
   securitySchemes:
     BasicAuth:
