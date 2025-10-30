@@ -40,7 +40,7 @@ paths:
           example: 50
       responses:
         '200':
-              description: Successful response with matched inquiry data
+          description: Successful response with matched inquiry data
           content:
             application/json:
               examples:
@@ -70,69 +70,83 @@ paths:
                 properties:
                   status:
                     type: string
-                    example: success
                   data:
                     type: array
                     items:
                       type: object
                       properties:
-                        code: { type: string, example: "87085099" }
-                        name: { type: string, example: "Ball cage" }
-                        qty: { type: string, example: "30" }
-                        length: { type: string, example: "81" }
-                        width: { type: string, example: "122" }
-                        height: { type: string, example: "89" }
-                        size_uom: { type: string, example: "cm" }
-                        origin: { type: string, example: "VNSGN" }
-                        destination: { type: string, example: "USCHS" }
-                        delivery_address: { type: string, example: "479 Trade Center Parkway, Summerville, SC 29483, USA" }
-                        mode: { type: string, example: "Sea" }
-                        commodity: { type: string, example: "Ball cage" }
-                        commodity_type: { type: string, example: "Machinery" }
-                        inco_term: { type: string, example: "DAP" }
-                        movement_type: { type: string, example: "Port to Door" }
-                        remarks: { type: string, example: "Customer requests warehouse storage and domestic trucking." }
+                        code: { type: string }
+                        name: { type: string }
+                        qty: { type: string }
+                        length: { type: string }
+                        width: { type: string }
+                        height: { type: string }
+                        size_uom: { type: string }
+                        origin: { type: string }
+                        destination: { type: string }
+                        delivery_address: { type: string }
+                        mode: { type: string }
+                        commodity: { type: string }
+                        commodity_type: { type: string }
+                        inco_term: { type: string }
+                        movement_type: { type: string }
+                        remarks: { type: string }
         '401':
-          examples:
-            invalidCredentials:
-              value:
-                status: "error"
-                message: "Invalid credentials"
           description: Invalid credentials
           content:
             application/json:
+              examples:
+                invalidCredentials:
+                  value:
+                    status: "error"
+                    message: "Invalid credentials"
               schema:
                 type: object
                 properties:
-                  status: { type: string, example: "error" }
-                  message: { type: string, example: "Invalid credentials" }
+                  status: { type: string }
+                  message: { type: string }
         '403':
           description: Unauthorized company
           content:
             application/json:
+              examples:
+                unauthorizedCompany:
+                  value:
+                    status: "error"
+                    message: "Unauthorized company"
               schema:
                 type: object
                 properties:
-                  status: { type: string, example: "error" }
-                  message: { type: string, example: "Unauthorized company" }
+                  status: { type: string }
+                  message: { type: string }
         '404':
           description: No matching data found
           content:
             application/json:
+              examples:
+                noMatchFound:
+                  value:
+                    status: "error"
+                    message: "No matching unprocessed data found"
               schema:
                 type: object
                 properties:
-                  status: { type: string, example: "error" }
-                  message: { type: string, example: "No matching unprocessed data found" }
+                  status: { type: string }
+                  message: { type: string }
         '500':
           description: Internal server error
           content:
             application/json:
+              examples:
+                internalError:
+                  value:
+                    status: "error"
+                    message: "Internal server error"
               schema:
                 type: object
                 properties:
-                  status: { type: string, example: "error" }
-                  message: { type: string, example: "Internal server error" }
+                  status: { type: string }
+                  message: { type: string }
 components:
   securitySchemes:
     BasicAuth:
@@ -140,6 +154,3 @@ components:
       scheme: basic
 security:
   - BasicAuth: []
-
-
-
