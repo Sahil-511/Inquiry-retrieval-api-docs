@@ -8,8 +8,6 @@ info:
 
     **Notes:**
     - Only unprocessed email data is returned to prevent duplicate processing.  
-    #- Authentication via query parameters should be replaced with token-based security in production.  
-    #- Rate limiting: TBD (e.g., 100 requests/day per user).
 
 servers:
   - url: https://app.freightoscope.com
@@ -187,4 +185,5 @@ components:
     BasicAuth:
       type: http
       scheme: basic
+
 
