@@ -3,43 +3,51 @@ info:
   title: Data Retrieval API
   version: 1.0.0
   description: |
-    The Data Retrieval API authenticates users, retrieves unprocessed email data from the database,
+    The Data Retrieval API authenticates users, retrieves unprocessed email data from the database, 
     matches it with stored inquiry JSON, and returns matched data in JSON format.
+
+    **Notes:**
+    - Only unprocessed email data is returned to prevent duplicate processing.  
+    - Authentication via query parameters should be replaced with token-based security in production.  
+    - Rate limiting: TBD (e.g., 100 requests/day per user).
+
 servers:
   - url: https://app.freightoscope.com
+
 paths:
   /AIEmailData:
     get:
       summary: Retrieve unprocessed matched inquiry data
       description: |
-        Authenticates a user, retrieves unprocessed email data, matches it with stored inquiry JSON, 
+        Authenticates a user, retrieves unprocessed email data, matches it with stored inquiry JSON,
         and returns matched data in JSON format.
+      operationId: getInquiryData
       parameters:
-        - in: query
-          name: username
+        - name: username
+          in: query
+          required: true
           schema:
             type: string
-          required: true
           description: Username for authentication
           example: john_doe
-        - in: query
-          name: password
+        - name: password
+          in: query
+          required: true
           schema:
             type: string
-          required: true
           description: Password for authentication
           example: secure123
-        - in: query
-          name: confidence
+        - name: confidence
+          in: query
+          required: false
           schema:
             type: integer
             minimum: 0
             maximum: 100
-          required: false
           description: Optional confidence threshold (0–100)
           example: 50
       responses:
-        '200':
+        "200":
           description: Successful response with matched inquiry data
           content:
             application/json:
@@ -54,22 +62,54 @@ paths:
                     items:
                       type: object
                       properties:
-                        code: { type: string, example: "87085099" }
-                        name: { type: string, example: "Ball cage" }
-                        qty: { type: string, example: "30" }
-                        length: { type: string, example: "81" }
-                        width: { type: string, example: "122" }
-                        height: { type: string, example: "89" }
-                        size_uom: { type: string, example: "cm" }
-                        origin: { type: string, example: "VNSGN" }
-                        destination: { type: string, example: "USCHS" }
-                        delivery_address: { type: string, example: "479 Trade Center Parkway, Summerville, SC 29483, USA" }
-                        mode: { type: string, example: "Sea" }
-                        commodity: { type: string, example: "Ball cage" }
-                        commodity_type: { type: string, example: "Machinery" }
-                        inco_term: { type: string, example: "DAP" }
-                        movement_type: { type: string, example: "Port to Door" }
-                        remarks: { type: string, example: "Customer requests warehouse storage and domestic trucking." }
+                        code:
+                          type: string
+                          example: "87085099"
+                        name:
+                          type: string
+                          example: "Ball cage"
+                        qty:
+                          type: string
+                          example: "30"
+                        length:
+                          type: string
+                          example: "81"
+                        width:
+                          type: string
+                          example: "122"
+                        height:
+                          type: string
+                          example: "89"
+                        size_uom:
+                          type: string
+                          example: "cm"
+                        origin:
+                          type: string
+                          example: "VNSGN"
+                        destination:
+                          type: string
+                          example: "USCHS"
+                        delivery_address:
+                          type: string
+                          example: "479 Trade Center Parkway, Summerville, SC 29483, USA"
+                        mode:
+                          type: string
+                          example: "Sea"
+                        commodity:
+                          type: string
+                          example: "Ball cage"
+                        commodity_type:
+                          type: string
+                          example: "Machinery"
+                        inco_term:
+                          type: string
+                          example: "DAP"
+                        movement_type:
+                          type: string
+                          example: "Port to Door"
+                        remarks:
+                          type: string
+                          example: "Customer requests warehouse storage and domestic trucking."
               example:
                 status: success
                 data:
@@ -89,58 +129,61 @@ paths:
                     inco_term: "DAP"
                     movement_type: "Port to Door"
                     remarks: "Customer requests warehouse storage and domestic trucking."
-        '401':
+        "401":
           description: Invalid credentials
           content:
             application/json:
               schema:
                 type: object
                 properties:
-                  status: { type: string, example: "error" }
-                  message: { type: string, example: "Invalid credentials" }
-              example:
-                status: error
-                message: Invalid credentials
-        '403':
+                  status:
+                    type: string
+                    example: error
+                  message:
+                    type: string
+                    example: Invalid credentials
+        "403":
           description: Unauthorized company
           content:
             application/json:
               schema:
                 type: object
                 properties:
-                  status: { type: string, example: "error" }
-                  message: { type: string, example: "Unauthorized company" }
-              example:
-                status: error
-                message: Unauthorized company
-        '404':
+                  status:
+                    type: string
+                    example: error
+                  message:
+                    type: string
+                    example: Unauthorized company
+        "404":
           description: No matching data found
           content:
             application/json:
               schema:
                 type: object
                 properties:
-                  status: { type: string, example: "error" }
-                  message: { type: string, example: "No matching unprocessed data found" }
-              example:
-                status: error
-                message: No matching unprocessed data found
-        '500':
+                  status:
+                    type: string
+                    example: error
+                  message:
+                    type: string
+                    example: No matching unprocessed data found
+        "500":
           description: Internal server error
           content:
             application/json:
               schema:
                 type: object
                 properties:
-                  status: { type: string, example: "error" }
-                  message: { type: string, example: "Internal server error" }
-              example:
-                status: error
-                message: Internal server error
+                  status:
+                    type: string
+                    example: error
+                  message:
+                    type: string
+                    example: Internal server error
+
 components:
   securitySchemes:
     BasicAuth:
       type: http
       scheme: basic
-security:
-  - BasicAuth: []
