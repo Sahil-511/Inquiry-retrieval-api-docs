@@ -4,7 +4,7 @@ info:
   version: 1.0.0
   description: |
     The **Data Retrieval API** authenticates users, retrieves unprocessed email data from the database,
-    matches it with stored inquiry JSON, and returns matched data in JSON format.
+    matches it with stored JSON, and returns matched data in JSON format.
     ---
     
   contact:
@@ -20,7 +20,7 @@ servers:
 paths:
   /AIEmailData:
     get:
-      summary: Retrieve processed inquiry data
+      summary: Retrieve processed Email data
       description: Fetches the most recent unprocessed email data for a user with optional AI confidence threshold.
       parameters:
         - name: userName
@@ -186,13 +186,13 @@ components:
           example: "Success"
         Data:
           type: array
-          description: List of parsed email Inquiry records.
+          description: List of parsed email Data records.
           items:
             type: object
             properties:
               Items:
                 type: array
-                description: List of inquiry items parsed from the email.
+                description: List of items parsed from the email.
                 items:
                   type: object
                   properties:
@@ -294,5 +294,6 @@ components:
               PartialReason:
                 type: string
                 description: Reason for partial data (if IsPartial = true).
+
 
 
