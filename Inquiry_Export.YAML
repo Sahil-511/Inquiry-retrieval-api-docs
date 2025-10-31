@@ -40,13 +40,13 @@ paths:
           schema:
             type: string
           example: "FOS@2024"
-        #- name: Confidence
+        #- name: 
           #in: query
           #required: false
           #description: |
-            #Optional confidence threshold (0–100).  
-            #- `0` → includes confidence values in response.  
-            #- `1` → excludes confidence values.
+            #Optional  threshold (0–100).  
+            #- `0` → includes  values in response.  
+            #- `1` → excludes  values.
           #schema:
             #type: integer
           #example: 0
@@ -56,8 +56,8 @@ paths:
           content:
             application/json:
               example:
-                #With Confidence Fields:
-                  #summary: Response when Confidence = 0
+                #With  Fields:
+                  #summary: Response when  = 0
                   #value:
                     #Message: "Success"
                     #Data:
@@ -72,43 +72,43 @@ paths:
                             #width: "20"
                             #height: "30"
                             #size_uom: "cm"
-                            #confidence: "50"
+                            #: "50"
                         #Containers: []
                         #mode: "Air"
-                        #mode_confidence: 50
+                        #mode_: 50
                         #type: ""
-                        #type_confidence: 100
+                        #type_: 100
                         #commodity: "general cargo"
-                        #commodity_confidence: 100
+                        #commodity_: 100
                         #origin: "BOM (Chhatrapati Shivaji, Mumbai) India"
-                        #origin_confidence: 100
+                        #origin_: 100
                         #origin_port_or_door: "port"
                         #destination: "LCT (London City Airport) United Kingdom"
-                        #destination_confidence: 100
+                        #destination_: 100
                         #destination_port_or_door: "port"
                         #container_size: null
-                        #container_size_confidence: 0
+                        #container_size_: 0
                         #inco_term: null
-                        #inco_term_confidence: 0
+                        #inco_term_: 0
                         #pickup_address: null
-                        #pickup_address_confidence: 0
+                        #pickup_address_: 0
                         #delivery_address: null
-                        #delivery_address_confidence: 0
+                        #delivery_address_: 0
                         #total_weight: 220
-                        #total_weight_confidence: 60
+                        #total_weight_: 60
                         #weight_uom: "kg"
-                        #weight_uom_confidence: 60
+                        #weight_uom_: 60
                         #cbm: null
-                        #cbm_confidence: 100
+                        #cbm_: 100
                         #departure_date: null
-                        #departure_date_confidence: 60
+                        #departure_date_: 60
                         #arrival_date: null
-                        #arrival_date_confidence: 60
+                        #arrival_date_: 60
                         #OriginalEmail: "Dhummas Mehta Product Director Email: dhummas@freightoscope.com T: + 91 9820795150 https://www.freightoscope.com From: SMITH Pam \u003Cpam.smith@bostik.com\u003ESent: Tuesday, July 23, 2024 8:22 AMTo: Maureen Bond \u003Cmaureenb@360lg.co.nz\u003ESubject: QUOTE FOR LCL 8 PALLETS FROM BENELUX, THE NETHERLANDS TO AUCKLAND - PO'S 4501235903 AND 4501228250 - EX WORKSHi,Please send me rates for Mumbai to London for 5 pcs 220 kg general cargo"
                         #IsPartial: false
                         #PartialReason: null
-                #Without Confidence Fields:
-                  #summary: Response when Confidence = 1
+                #Without  Fields:
+                  #summary: Response when  = 1
                   #value:
                     Message: "Success"
                     Data:
@@ -229,9 +229,9 @@ components:
                     size_uom:
                       type: string
                       description: Unit of measurement for size (e.g., cm).
-                    confidence:
-                      type: string
-                      description: AI confidence percentage for accuracy of extracted item data.
+                    #confidence:
+                      #type: string
+                      #description: AI confidence percentage for accuracy of extracted item data.
               Containers:
                 type: array
                 description: List of containers, if applicable.
@@ -297,6 +297,7 @@ components:
               PartialReason:
                 type: string
                 description: Reason for partial data (if IsPartial = true).
+
 
 
 
