@@ -2,10 +2,10 @@ openapi: 3.0.3
 info:
   title: Data Retrieval API
   version: 1.0.0
-  description: |
-    The **Data Retrieval API** authenticates users, retrieves unprocessed email data from the database,
-    matches it with stored JSON, and returns matched data in JSON format.
-    ---
+  #description: |
+    #The **Data Retrieval API** authenticates users, retrieves unprocessed email data from the database,
+    #matches it with stored JSON, and returns matched data in JSON format.
+    #---
     
   contact:
     name: Freightoscope Support
@@ -13,8 +13,11 @@ info:
 
 
 servers:
+  - url: https://test.freightoscope.com
+    description: Test Server
   - url: https://app.freightoscope.com
     description: Production Server
+  
 
 
 paths:
@@ -37,19 +40,19 @@ paths:
           schema:
             type: string
           example: "FOS@2024"
-        - name: Confidence
-          in: query
-          required: false
-          description: |
-            Optional confidence threshold (0–100).  
-            - `0` → includes confidence values in response.  
-            - `1` → excludes confidence values.
-          schema:
-            type: integer
-          example: 0
+        #- name: Confidence
+          #in: query
+          #required: false
+          #description: |
+            #Optional confidence threshold (0–100).  
+            #- `0` → includes confidence values in response.  
+            #- `1` → excludes confidence values.
+          #schema:
+            #type: integer
+          #example: 0
       responses:
         "200":
-          description: Successful response (Data retrieved successfully)
+          description: Successful response
           content:
             application/json:
               example:
@@ -294,6 +297,7 @@ components:
               PartialReason:
                 type: string
                 description: Reason for partial data (if IsPartial = true).
+
 
 
 
