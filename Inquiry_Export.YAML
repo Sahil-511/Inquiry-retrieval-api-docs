@@ -53,57 +53,57 @@ paths:
           content:
             application/json:
               examples:
-                With Confidence Fields:
-                  summary: Response when Confidence = 0
-                  value:
-                    Message: "Success"
-                    Data:
-                      - Items:
-                          - code: "Gen"
-                            name: "general cargo"
-                            qty: "5"
-                            unit_weight: "kg"
-                            weight: "220"
-                            weight_uom: "kg"
-                            length: "10"
-                            width: "20"
-                            height: "30"
-                            size_uom: "cm"
-                            confidence: "50"
-                        Containers: []
-                        mode: "Air"
-                        mode_confidence: 50
-                        type: ""
-                        type_confidence: 100
-                        commodity: "general cargo"
-                        commodity_confidence: 100
-                        origin: "BOM (Chhatrapati Shivaji, Mumbai) India"
-                        origin_confidence: 100
-                        origin_port_or_door: "port"
-                        destination: "LCT (London City Airport) United Kingdom"
-                        destination_confidence: 100
-                        destination_port_or_door: "port"
-                        container_size: null
-                        container_size_confidence: 0
-                        inco_term: null
-                        inco_term_confidence: 0
-                        pickup_address: null
-                        pickup_address_confidence: 0
-                        delivery_address: null
-                        delivery_address_confidence: 0
-                        total_weight: 220
-                        total_weight_confidence: 60
-                        weight_uom: "kg"
-                        weight_uom_confidence: 60
-                        cbm: null
-                        cbm_confidence: 100
-                        departure_date: null
-                        departure_date_confidence: 60
-                        arrival_date: null
-                        arrival_date_confidence: 60
-                        OriginalEmail: "Dhummas Mehta Product Director Email: dhummas@freightoscope.com T: + 91 9820795150 https://www.freightoscope.com From: SMITH Pam \u003Cpam.smith@bostik.com\u003ESent: Tuesday, July 23, 2024 8:22 AMTo: Maureen Bond \u003Cmaureenb@360lg.co.nz\u003ESubject: QUOTE FOR LCL 8 PALLETS FROM BENELUX, THE NETHERLANDS TO AUCKLAND - PO'S 4501235903 AND 4501228250 - EX WORKSHi,Please send me rates for Mumbai to London for 5 pcs 220 kg general cargo"
-                        IsPartial: false
-                        PartialReason: null
+                #With Confidence Fields:
+                  #summary: Response when Confidence = 0
+                  #value:
+                    #Message: "Success"
+                    #Data:
+                      #- Items:
+                       #   - code: "Gen"
+                        #    name: "general cargo"
+                         #   qty: "5"
+                          #  unit_weight: "kg"
+                           # weight: "220"
+                            #weight_uom: "kg"
+                            #length: "10"
+                            #width: "20"
+                            #height: "30"
+                            #size_uom: "cm"
+                            #confidence: "50"
+                        #Containers: []
+                        #mode: "Air"
+                        #mode_confidence: 50
+                        #type: ""
+                        #type_confidence: 100
+                        #commodity: "general cargo"
+                        #commodity_confidence: 100
+                        #origin: "BOM (Chhatrapati Shivaji, Mumbai) India"
+                        #origin_confidence: 100
+                        #origin_port_or_door: "port"
+                        #destination: "LCT (London City Airport) United Kingdom"
+                        #destination_confidence: 100
+                        #destination_port_or_door: "port"
+                        #container_size: null
+                        #container_size_confidence: 0
+                        #inco_term: null
+                        #inco_term_confidence: 0
+                        #pickup_address: null
+                        #pickup_address_confidence: 0
+                        #delivery_address: null
+                        #delivery_address_confidence: 0
+                        #total_weight: 220
+                        #total_weight_confidence: 60
+                        #weight_uom: "kg"
+                        #weight_uom_confidence: 60
+                        #cbm: null
+                        #cbm_confidence: 100
+                        #departure_date: null
+                        #departure_date_confidence: 60
+                        #arrival_date: null
+                        #arrival_date_confidence: 60
+                        #OriginalEmail: "Dhummas Mehta Product Director Email: dhummas@freightoscope.com T: + 91 9820795150 https://www.freightoscope.com From: SMITH Pam \u003Cpam.smith@bostik.com\u003ESent: Tuesday, July 23, 2024 8:22 AMTo: Maureen Bond \u003Cmaureenb@360lg.co.nz\u003ESubject: QUOTE FOR LCL 8 PALLETS FROM BENELUX, THE NETHERLANDS TO AUCKLAND - PO'S 4501235903 AND 4501228250 - EX WORKSHi,Please send me rates for Mumbai to London for 5 pcs 220 kg general cargo"
+                        #IsPartial: false
+                        #PartialReason: null
                 Without Confidence Fields:
                   summary: Response when Confidence = 1
                   value:
@@ -294,6 +294,7 @@ components:
               PartialReason:
                 type: string
                 description: Reason for partial data (if IsPartial = true).
+
 
 
 
