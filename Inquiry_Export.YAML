@@ -1,14 +1,12 @@
 openapi: 3.0.3
 info:
-  title: Inquiry Retrieval API
+  title: Data Retrieval API
   version: 1.0.0
   description: |
-    The **Inquiry Retrieval API** authenticates users, retrieves unprocessed email inquiry data from the database,
+    The **Data Retrieval API** authenticates users, retrieves unprocessed email data from the database,
     matches it with stored inquiry JSON, and returns matched data in JSON format.
     ---
-    **Supported Response Types:**
-    - Response with *Confidence Fields* (`Confidence=0`)
-    - Response without *Confidence Fields* (`Confidence=1`)
+    
   contact:
     name: Freightoscope Support
     email: support@freightoscope.com
@@ -296,4 +294,5 @@ components:
               PartialReason:
                 type: string
                 description: Reason for partial data (if IsPartial = true).
+
 
