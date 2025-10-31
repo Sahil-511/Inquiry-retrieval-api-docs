@@ -240,33 +240,33 @@ components:
               mode:
                 type: string
                 description: Mode of transportation (e.g., Air, Sea, Road).
-              mode_confidence:
-                type: integer
-                description: Confidence level for mode extraction.
+              #mode_confidence:
+                #type: integer
+                #description: Confidence level for mode extraction.
               type:
                 type: string
                 description: Type of shipment or cargo.
-              type_confidence:
-                type: integer
-                description: Confidence level for type detection.
+              #type_confidence:
+                #type: integer
+                #description: Confidence level for type detection.
               commodity:
                 type: string
                 description: Description of the cargo/commodity being transported.
-              commodity_confidence:
-                type: integer
-                description: Confidence level for commodity detection.
+              #commodity_confidence:
+                #type: integer
+                #description: Confidence level for commodity detection.
               origin:
                 type: string
                 description: Origin airport, seaport, or location.
-              origin_confidence:
-                type: integer
-                description: Confidence level for origin extraction.
+              #origin_confidence:
+                #type: integer
+                #description: Confidence level for origin extraction.
               destination:
                 type: string
                 description: Destination airport, seaport, or location.
-              destination_confidence:
-                type: integer
-                description: Confidence level for destination extraction.
+              #destination_confidence:
+                #type: integer
+                #description: Confidence level for destination extraction.
               inco_term:
                 type: string
                 description: Incoterm used for the shipment.
@@ -297,6 +297,7 @@ components:
               PartialReason:
                 type: string
                 description: Reason for partial data (if IsPartial = true).
+
 
 
 
